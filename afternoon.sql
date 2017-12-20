@@ -97,9 +97,24 @@ WHERE Composer IS NULL AND GenreId = (SELECT GenreId FROM Genre WHERE Name = 'Me
 
 -- Group by 
 
+SELECT g.Name, count(*)
+FROM Track t
+JOIN Genre g ON t.GenreId = g.GenreId
+GROUP BY g.GenreId
 
+SELECT g.Name, count(*)
+FROM Track t
+JOIN Genre g ON t.GenreId = g.GenreId
+GROUP BY g.GenreId
+HAVING g.Name = 'Pop' OR g.Name = 'Rock'
+
+SELECT a.Name, count(*)
+FROM Artist a
+JOIN Album al ON a.ArtistId = al.ArtistId
+GROUP BY al.ArtistId
 
 -- Distinct 
+
 
 
 -- Delete rows
